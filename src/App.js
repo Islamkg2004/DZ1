@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Transition from "./components/transitionPage/Transition";
+import First from "./pages/firstPage/First";
+import Second from "./pages/secondPage/Second";
+import Third from "./pages/thirdPage/Third";
+import Fourth from "./pages/fourthPage/Fourth";
+import Fifth from "./pages/fifthPage/Fifth";
+import {useEffect} from "react";
+import {useState} from "react";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Transition/>
+        <Routes>
+          <Route index element={<First/>}/>
+          <Route path="/second" element={<Second/>}/>
+          <Route path="/third" element={<Third/>}/>
+          <Route path="/fourth" element={<Fourth/>}/>
+          <Route path="fifth" element={<Fifth/>}/>
+        </Routes>
+      </BrowserRouter>
   );
 }
 
